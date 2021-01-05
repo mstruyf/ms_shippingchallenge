@@ -1,4 +1,5 @@
 # Shipping Challenge Linux
+Docker-compose with Nginx, MongoDB and Perl.
 
 ## My Vagrantfile
 ```bash
