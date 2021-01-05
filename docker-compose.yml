@@ -1,4 +1,5 @@
-version: "3.8"                                                                                                          services:
+version: "3.8"                                                                                                          
+services:
   mongodb:
     image : mongo
     container_name: mongod
