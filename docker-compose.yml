@@ -24,3 +24,5 @@ services:
     volumes:
       - /home/mstruyf/shipping/html:/usr/src/myapp
     restart: always
+    links:
+      - mongodb
