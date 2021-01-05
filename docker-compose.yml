@@ -1,10 +1,10 @@
-version: "3.3"                                                                                                          
+version: "3.3"                                                                        >
 services:
   mongodb:
     image : mongo
     container_name: mongod
     volumes:
-      - /home/mstruyf/shipping/database:/data/db
+      - /home/vagrant/ms_shippingchallenge/database:/data/db
     ports:
       - 27017:27017
     restart: unless-stopped
@@ -12,7 +12,7 @@ services:
     image: nginx
     container_name: nginx
     volumes:
-      - /home/mstruyf/shipping/html:/usr/share/nginx/html
+      - /home/vagrant/ms_shippingchallenge/html:/usr/share/nginx/html
     ports:
       - "8000:80"
   perl:
@@ -22,7 +22,7 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - /home/mstruyf/shipping/html:/usr/src/myapp
+      - /home/vagrant/ms_shippingchallenge/html:/usr/src/myapp
     restart: always
     links:
       - mongodb
