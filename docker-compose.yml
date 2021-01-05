@@ -1,0 +1,31 @@
+version: "3.8"                                                                                                          services:
+  mongodb:
+    image : mongo
+    container_name: mongod
+    environment:
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - /home/mstruyf/shipping/database:/data/db
+    ports:
+      - 27017:27017
+    restart: unless-stopped
+  web:
+    image: nginx
+    container_name: nginx
+    volumes:
+      - /home/mstruyf/shipping/html:/usr/share/nginx/html
+    ports:
+      - "8000:80"
+    environment:
+      - NGINX_HOST=foobar.com
+      - NGINX_PORT=80
+  perl:
+    image: perl
+    container_name: perl
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - /home/mstruyf/shipping/html:/usr/src/myapp
+    restart: always
